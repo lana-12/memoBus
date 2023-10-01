@@ -1,0 +1,15 @@
+
+/*Tools => mixins, variables, extends, functions, body, reset, class*/
+@import "./tools/variables";
+@import "./tools/reset";
+
+/*Components => nav, header, footer*/
+@import "./components/header.scss";
+
+
+/*layouts => page*/
+@import "./layouts/home";
+
+
+
+@import "~bootstrap/scss/bootstrap";
