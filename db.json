@@ -59,10 +59,18 @@
       "tid": 724
     },
     {
+      "id": 12,
+      "question": "Comment créer une page html",
+      "answer": "! et entrer",
+      "column": 1,
+      "selected": false,
+      "tid": 724
+    },
+    {
       "id": 22,
       "question": "Qui est l'inventeur de javascript ?",
       "answer": "Brendan Eich",
-      "column": 1,
+      "column": 2,
       "selected": false,
       "tid": 194
     },
@@ -70,7 +78,23 @@
       "id": 33,
       "question": "Sous quelle marque a été développé React ?",
       "answer": "FaceBook",
-      "column": 1,
+      "column": 2,
+      "selected": false,
+      "tid": 586
+    },
+    {
+      "id": 23,
+      "question": "Comment faire pour vérifier les données d'une variable",
+      "answer": "console.log(variable)",
+      "column": 3,
+      "selected": false,
+      "tid": 194
+    },
+    {
+      "id": 34,
+      "question": "Comment faire lancer le serveur React",
+      "answer": "npm start",
+      "column": 4,
       "selected": false,
       "tid": 586
     }

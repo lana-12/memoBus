@@ -6,7 +6,7 @@ export default class JsonServerTerm {
         return fetch(JsonServerTerm.url)
             .then(response => {
                 console.log(`response.status`, response.status);
-                if (response.status !== 200) throw new Error("Erreur dans le loadLogin")
+                if (response.status !== 200) throw new Error("Erreur dans le loadTerm")
                 return response.json();
             })
             .then(terms => {
@@ -14,7 +14,7 @@ export default class JsonServerTerm {
                 return terms;
             })
             .catch((error) => {
-                console.error(`Erreur attrapée dans loadLogin : ` + error);
+                console.error(`Erreur attrapée dans loadTerm : ` + error);
             });
     }
 }

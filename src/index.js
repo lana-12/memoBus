@@ -5,6 +5,7 @@ import Login from './components/Login';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap-icons/font/bootstrap-icons.css";
 import './scss/imports.scss';
 import { actionUser } from './actions/user';
 import Home from './components/Home';
