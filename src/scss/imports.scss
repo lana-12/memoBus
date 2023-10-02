@@ -2,9 +2,13 @@
 /*Tools => mixins, variables, extends, functions, body, reset, class*/
 @import "./tools/variables";
 @import "./tools/reset";
+@import "./tools/extends";
 
 /*Components => nav, header, footer*/
 @import "./components/header.scss";
+@import "./components/formLogin.scss";
+@import "./components/col.scss";
+@import "./components/card.scss";
 
 
 /*layouts => page*/

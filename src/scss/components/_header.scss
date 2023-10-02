@@ -1,11 +1,16 @@
 header {
+    background-color: $secondary;
+    // color: $light;
     & //titleNemo Start
         .titleNemo {
+            text-decoration: none;
             cursor: pointer;
+            color: $light;
         }
-    //titleNemo End
-    //Nav-Bar Login-Logout Start
-    & .link-header {
+        //titleNemo End
+        //Nav-Bar Login-Logout Start
+        & .link-header {
+        text-decoration: none;
         color: $light;
         margin-right: 10px;
     }

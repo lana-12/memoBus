@@ -1,0 +1,16 @@
+
+.boxFormLogin{
+    border: solid 1px $dark;
+    background-color: $secondary;
+    color: $light;
+    width: 500px;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 2px 2px 20px $dark;
+
+}
+
+.formLogin {
+    padding: 50px;
+    @extend %flexCol;
+}

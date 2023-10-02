@@ -1,25 +1,31 @@
-import NavLogin from "./NavLogin";
+import { Link } from "react-router-dom";
 
-const Header = ({ onClickTitleNemo }) => {
+const Header = ({ onClickLogout, color }) => {
     return (
-        <header className="bg-secondary">
+        <header className="">
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-9 d-flex justify-content-center">
                     {/* <div className="col-8 d-flex justify-content-center"> */}
                         <h1 
-
                         // Create route vers home
-                        onClick={onClickTitleNemo}
-                        className="titleNemo" 
-                        id="title-memo">MemoBus</h1>
+                        id="title-memo"><Link className="titleNemo" to="/home">MemoBus</Link></h1>
+                        
                     </div>
                     <div className="col-3">
-                        <NavLogin
-                        
-                        >
-                            
-                        </NavLogin>
+                        <nav className="d-flex justify-content-end">
+                            <ul>
+                                <li>
+                                    <Link className="link-header" to="/">Login</Link>
+                                </li>
+                                <li
+                                    onClick={onClickLogout}
+                                >Logout
+                                        {/* <Link className="link-header" to="/Logout">Logout</Link> */}
+                                </li>
+                            </ul>
+                        </nav>
+
                     </div>
                 </div>
             </div>
