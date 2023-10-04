@@ -47,6 +47,26 @@
       "id": 586,
       "name": "REACT",
       "selected": false
+    },
+    {
+      "name": "PHP",
+      "selected": false,
+      "id": 726
+    },
+    {
+      "name": "CSS",
+      "selected": false,
+      "id": 727
+    },
+    {
+      "name": "Java",
+      "selected": false,
+      "id": 728
+    },
+    {
+      "name": "Symphony",
+      "selected": false,
+      "id": 729
     }
   ],
   "cards": [

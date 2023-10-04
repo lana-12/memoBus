@@ -11,7 +11,7 @@ import { actionUser } from './actions/user';
 import Home from './components/Home';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root')
+  document.getElementById('root') 
 );
 const router = createBrowserRouter(
   createRoutesFromElements(

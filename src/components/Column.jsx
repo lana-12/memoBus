@@ -1,9 +1,10 @@
 import Card from "./Card";
 
-const Columns = ({ col, cards }) => {
+const Columns = ({ col, cards, termSelected }) => {
     // console.log("cards dans le composant Column : ", cards);
     const copy = [...cards];
     // console.log('copy : ', copy)
+    
     return (
         <div className="container boxCol me-4">            
             <h4>{col.label}</h4>
@@ -13,8 +14,10 @@ const Columns = ({ col, cards }) => {
             {copy
                 .filter((card)=>{
                 return card.column === col.id
+                {/* return card.column === col.id && termSelected.id === card.tid */}
             })
                 .map((card) => <Card key={card.id} card={card} />) }
+
 
         </div>
     );
