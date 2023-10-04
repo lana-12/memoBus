@@ -5,12 +5,12 @@ export default class JsonServerCard {
     static async loadCard() {
         return fetch(JsonServerCard.url)
             .then(response => {
-                console.log(`response.status`, response.status);
+                // console.log(`response.status`, response.status);
                 if (response.status !== 200) throw new Error("Erreur dans le loadCard")
                 return response.json();
             })
             .then(cards => {
-                console.log(`cards : `, cards);
+                // console.log(`cards : `, cards);
                 return cards;
             })
             .catch((error) => {
@@ -29,11 +29,11 @@ export default class JsonServerCard {
                 body: JSON.stringify(card)
             })
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 return response.json();
             })
             .then(function (card) {
-                console.log(card)
+                // console.log(card)
             })
             .catch(function (error) { console.error(error) })
     }

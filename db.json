@@ -67,6 +67,11 @@
       "name": "Symphony",
       "selected": false,
       "id": 729
+    },
+    {
+      "name": "SQL",
+      "selected": false,
+      "id": 730
     }
   ],
   "cards": [
@@ -77,6 +82,14 @@
       "column": 1,
       "selected": false,
       "tid": 724
+    },
+    {
+      "id": 40,
+      "question": "Qui a inventé le PHP ?",
+      "answer": "Rasmus Lerdorf",
+      "column": 1,
+      "selected": false,
+      "tid": 726
     },
     {
       "id": 12,
@@ -117,6 +130,46 @@
       "column": 4,
       "selected": false,
       "tid": 586
+    },
+    {
+      "id": 50,
+      "question": "Que veut dire CSS",
+      "answer": "Cascading Style Sheets ou  feuille de style en cascade",
+      "column": 3,
+      "selected": false,
+      "tid": 727
+    },
+    {
+      "id": 60,
+      "question": "Que veut dire SQL",
+      "answer": "Structured Query Language ",
+      "column": 2,
+      "selected": false,
+      "tid": 730
+    },
+    {
+      "id": 61,
+      "question": "Quel est la dernière version de Symfony ?",
+      "answer": "6.2.7",
+      "column": 2,
+      "selected": false,
+      "tid": 729
+    },
+    {
+      "question": "Cette fois",
+      "answer": "c'est la bonne",
+      "tid": 729,
+      "column": 1,
+      "selected": false,
+      "id": 65
+    },
+    {
+      "question": "Encore un test",
+      "answer": "On croise les doigts",
+      "tid": 728,
+      "column": 1,
+      "selected": false,
+      "id": 66
     }
   ]
 }

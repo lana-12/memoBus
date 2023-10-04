@@ -1,26 +1,21 @@
 import Card from "./Card";
 
-const Columns = ({ col, cards, termSelected }) => {
+const Column = ({ col, cards, termSelected }) => {
     // console.log("cards dans le composant Column : ", cards);
     const copy = [...cards];
     // console.log('copy : ', copy)
-    
+    console.log('dans colums cards : ', copy)
+    console.log('dans colums col : ', col)
     return (
         <div className="container boxCol me-4">            
             <h4>{col.label}</h4>
-            {/* //Faire une copie de map */}
-            {/* faire un filter avec les id */}
-            
             {copy
-                .filter((card)=>{
-                return card.column === col.id
-                {/* return card.column === col.id && termSelected.id === card.tid */}
-            })
-                .map((card) => <Card key={card.id} card={card} />) }
-
-
+                .filter((card) => {
+                    return card.column === col.id && card.tid === termSelected.id
+                })
+                .map((card, index) => <Card key={index} card={card} />)}
         </div>
     );
 }
 
-export default Columns;
+export default Column;

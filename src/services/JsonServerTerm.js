@@ -5,12 +5,12 @@ export default class JsonServerTerm {
     static async loadTerm() {
         return fetch(JsonServerTerm.url)
             .then(response => {
-                console.log(`response.status`, response.status);
+                // console.log(`response.status`, response.status);
                 if (response.status !== 200) throw new Error("Erreur dans le loadTerm")
                 return response.json();
             })
             .then(terms => {
-                console.log(`terms : `, terms);
+                // console.log(`terms : `, terms);
                 return terms;
             })
             .catch((error) => {
