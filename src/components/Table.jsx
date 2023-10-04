@@ -1,6 +1,6 @@
 import Column from "./Column";
 
-const Table = ({ cols, cards, termSelected }) => {
+const Table = ({ cols, cards, termSelected, handleChangeCardColumn  }) => {
 
     const copyCol = [...cols]
     console.log(copyCol);
@@ -12,6 +12,7 @@ const Table = ({ cols, cards, termSelected }) => {
                     col={col}
                     cards={cards}
                     termSelected={termSelected}
+                    updateCardColumn={handleChangeCardColumn}
                 />)}
         </>
     );

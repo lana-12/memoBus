@@ -51,30 +51,30 @@ function Home() {
         fetchData();
     }, []);
 
-    const handleShowTable = () => {
-        setShowTable(true);
-    };
+    // const handleShowTable = () => {
+    //     setShowTable(true);
+    // }
 
-    // Fonction pour afficher la modalCreateTerm
+    // Function for display the la modalCreateTerm
     const handleShowModal = () => {
         setShowModal(true);
     };
 
-    // Fonction pour masquer la modalCreateTerm
+    // Function for hidden the modalCreateTerm
     const handleCloseModal = () => {
         setShowModal(false);
     };
-    // Fonction pour afficher la modalCreateCard
+    // Function for display the modalCreateCard
     const handleShowModalCard = () => {
         setShowModalCard(true);
     };
 
-    // Fonction pour masquer la modalCreateCard
+    // Function for hidden the modalCreateCard
     const handleCloseModalCard = () => {
         setShowModalCard(false);
     };
 
-    // Fonction pour ajouter un terme
+    // Function for add a term
     const handleAddTerm = (termName) => {
         const new_term= {
             name: termName,
@@ -84,19 +84,30 @@ function Home() {
         setTerms([...terms, new_term]);
     };
 
-    // Fonction pour ajouter une card
+    // Function for add une card
     const handleAddCard = (cardData) => {
-        console.log('Dans handleAddCard ')
+        // console.log('Dans handleAddCard ')
         const new_card = {
             ...cardData,
             column: 1,
             selected: false,
         }
-        console.log('newCard :', new_card);
         JsonServerCard.addRemoteCard(new_card);
         setCards([...cards, new_card ]);
     };
 
+    // Function for update Col of the card
+    const handleChangeCardColumn = (cardId, newColumn) => {
+        // console.log('Dans handleChangeCardColumn ')
+        JsonServerCard.changeCardColumn(cardId, newColumn);
+        const updateChangeCardsCol = cards.map((card) => {
+            if (card.id === cardId) {
+                return { ...card, column: newColumn };
+            }
+            return card;
+        });
+        setCards(updateChangeCardsCol);
+    };
     
     return (
         <>
@@ -109,7 +120,6 @@ function Home() {
                             onClick={handleShowModal}
                         >+</button>
                         
-
                         {terms.map((term) =>
                             <Term 
                                 key={term.id} 
@@ -128,8 +138,7 @@ function Home() {
                     className="btn btn-primary" title="Ajouter une carte"
                     onClick={handleShowModalCard}
                 > Ajouter une Carte</button>
-                            
-                <p className="">{termSelected.name}, {termSelected.id}</p>
+                <p className="titleTerm">{termSelected.name}</p>
 
                 <section className="container my-5">
                     <div className="row ">
@@ -141,6 +150,7 @@ function Home() {
                                     cols={columns}
                                     cards={cards}
                                     termSelected={termSelected}
+                                    handleChangeCardColumn={handleChangeCardColumn}
                                     />
                             }
                                 

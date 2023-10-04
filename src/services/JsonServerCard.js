@@ -37,4 +37,34 @@ export default class JsonServerCard {
             })
             .catch(function (error) { console.error(error) })
     }
+
+    //changeCardColumn(cardId, newColumn);
+    static async changeCardColumn(cardId, newColumn) {
+        const url = `${JsonServerCard.url}/${cardId}`;
+        const updatedCard = {
+            column: newColumn
+        };
+
+        try {
+            const response = await fetch(url, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(updatedCard)
+            });
+
+            if (!response.ok) {
+                throw new Error(`Erreur lors de la mise à jour de la carte avec l'ID ${cardId}`);
+            }
+
+            const updatedData = await response.json();
+            return updatedData;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+
+
 }
