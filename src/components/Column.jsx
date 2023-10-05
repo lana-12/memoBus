@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-const Column = ({ col, cards, termSelected, updateCardColumn }) => {
+const Column = ({ col, cards, termSelected, updateCardColumn, deleteCard, updateCard }) => {
     // console.log("cards dans le composant Column : ", cards);
     const copy = [...cards];
     // console.log('copy : ', copy)
@@ -17,7 +17,11 @@ const Column = ({ col, cards, termSelected, updateCardColumn }) => {
                     <Card 
                         key={index} 
                         card={card}
-                        updateCardColumn={updateCardColumn} />)}
+                        updateCardColumn={updateCardColumn}
+                        deleteCard={deleteCard}
+                        updateCard={updateCard} 
+
+                        />)}
         </div>
     );
 }

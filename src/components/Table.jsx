@@ -1,9 +1,9 @@
 import Column from "./Column";
 
-const Table = ({ cols, cards, termSelected, handleChangeCardColumn  }) => {
+const Table = ({ cols, cards, termSelected, handleChangeCardColumn, handleClickDeleteCard, handleShowModalEditCard  }) => {
 
     const copyCol = [...cols]
-    console.log(copyCol);
+    // console.log(copyCol);
     return (
         <>
             {copyCol.map((col) => 
@@ -13,6 +13,8 @@ const Table = ({ cols, cards, termSelected, handleChangeCardColumn  }) => {
                     cards={cards}
                     termSelected={termSelected}
                     updateCardColumn={handleChangeCardColumn}
+                    deleteCard={handleClickDeleteCard}
+                    updateCard={handleShowModalEditCard}
                 />)}
         </>
     );

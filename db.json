@@ -72,6 +72,11 @@
       "name": "SQL",
       "selected": false,
       "id": 730
+    },
+    {
+      "name": "truc",
+      "selected": false,
+      "id": 731
     }
   ],
   "cards": [
@@ -170,6 +175,22 @@
       "column": 4,
       "selected": false,
       "id": 66
+    },
+    {
+      "question": "truc",
+      "answer": "truc",
+      "tid": 731,
+      "column": 1,
+      "selected": false,
+      "id": 67
+    },
+    {
+      "question": "hyhyhy",
+      "answer": "jijiji",
+      "tid": 727,
+      "column": 1,
+      "selected": false,
+      "id": 68
     }
   ]
 }

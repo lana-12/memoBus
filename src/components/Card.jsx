@@ -1,4 +1,5 @@
-const Card = ({ card, updateCardColumn }) => {
+
+const Card = ({ card, updateCardColumn, deleteCard, updateCard }) => {
 
     const handleMoveRightClick = ()=> {
         const currentColumn = card.column;
@@ -7,9 +8,21 @@ const Card = ({ card, updateCardColumn }) => {
         updateCardColumn(card.id, newColumn);
     }
 
-    
+    const onClickDeleteCard = ()=> {
+        console.log('Dans Card ');
+        deleteCard(card.id);
+    }
+
+    const onClickEditCard = ()=> {
+        console.log('Dans Card ');
+        console.log(card.id);
+
+        updateCard(card.id);
+    }
+
 
     return (
+        <>
         <div className="card bg-secondary">
             <article id={card.id}>
                 <div className="card-body">
@@ -28,13 +41,26 @@ const Card = ({ card, updateCardColumn }) => {
 
                 </div>
                     <h6 className="card-subtitle mb-2 text-muted"> N° term : {card.tid}</h6>
-                    <p className="card-text">{card.answer}</p>
-                    <div className="text-center">
-                        <button className="btn btn-warning ">Proposer une réponse</button>
+                    <p className="card-text">Réponse : {card.answer}</p>
+                    <div className="d-flex justify-content-evenly">
+                        <button 
+                        className="btn btn-danger"
+                        onClick={onClickDeleteCard}>
+                        Supprimer
+                        </button>
+                        
+                        <button
+                        onClick={onClickEditCard} 
+                        className="btn btn-warning ">
+                        Modifier
+                        </button>
                     </div>
                 </div>
             </article>
         </div>
+
+
+    </>
     );
 }
 

@@ -38,7 +38,53 @@ export default class JsonServerCard {
             .catch(function (error) { console.error(error) })
     }
 
-    //changeCardColumn(cardId, newColumn);
+    static async deleteRemoteCard(card_id) {
+        return fetch(`${JsonServerCard.url}/${card_id}`,
+            {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: "DELETE"
+            })
+            .then(function (res) {
+                console.log(`res.status`, res.status);
+                if (res.status !== 200) throw new Error("Erreur dans deleteRemoteCard");
+                return res.json();
+            })
+            .then(function (data) { console.log("data après delete", data) })
+    }
+
+
+    static async changeCardColumn(cardId) {
+        // const url = `${JsonServerCard.url}/${cardId}`;
+        // const updatedCard = {
+        //     column: newColumn
+        // };
+
+        // try {
+        //     const response = await fetch(url, {
+        //         method: "PATCH",
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         },
+        //         body: JSON.stringify(updatedCard)
+        //     });
+
+        //     if (!response.ok) {
+        //         throw new Error(`Erreur lors de la mise à jour de la carte avec l'ID ${cardId}`);
+        //     }
+
+        //     const updatedData = await response.json();
+        //     return updatedData;
+        // } catch (error) {
+        //     console.error(error);
+        //     throw error;
+        // }
+    }
+
+
+
     static async changeCardColumn(cardId, newColumn) {
         const url = `${JsonServerCard.url}/${cardId}`;
         const updatedCard = {
@@ -65,6 +111,9 @@ export default class JsonServerCard {
             throw error;
         }
     }
+
+
+    
 
 
 }

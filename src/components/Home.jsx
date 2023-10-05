@@ -3,10 +3,11 @@ import JsonServerTerm from "../services/JsonServerTerm";
 import JsonServerColumn from "../services/JsonServerColumn";
 import JsonServerCard from "../services/JsonServerCard";
 import Term from './Term';
+import Table from "./Table";
 import { Link } from 'react-router-dom';
 import ModalAddTerm from "./ModalAddTerm";
 import ModalAddCard from "./ModalAddCard";
-import Table from "./Table";
+import ModalEditCard from "./ModalEditCard";
 
 
 
@@ -17,6 +18,8 @@ function Home() {
     const [cards, setCards] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [showModalCard, setShowModalCard] = useState(false);
+    const [showModalEditCard, setShowModalEditCard] = useState(false);
+
     const [showTable, setShowTable] = useState(false);
 
     const [error, setError] = useState("");
@@ -51,6 +54,7 @@ function Home() {
         fetchData();
     }, []);
 
+    
     // const handleShowTable = () => {
     //     setShowTable(true);
     // }
@@ -64,6 +68,7 @@ function Home() {
     const handleCloseModal = () => {
         setShowModal(false);
     };
+
     // Function for display the modalCreateCard
     const handleShowModalCard = () => {
         setShowModalCard(true);
@@ -72,6 +77,16 @@ function Home() {
     // Function for hidden the modalCreateCard
     const handleCloseModalCard = () => {
         setShowModalCard(false);
+    };
+
+    // Function for display the modalEditCard
+    const handleShowModalEditCard = () => {
+        setShowModalEditCard(true);
+    };
+
+    // Function for hidden the modalEditCard
+    const handleCloseModalEditCard = () => {
+        setShowModalEditCard(false);
     };
 
     // Function for add a term
@@ -95,6 +110,30 @@ function Home() {
         JsonServerCard.addRemoteCard(new_card);
         setCards([...cards, new_card ]);
     };
+
+    const handleEditCard = (car_id) =>{
+        console.log('Dans handleEditCard ')
+        console.log(car_id)
+    }
+
+
+    // Function for delete une card
+    const handleClickDeleteCard = (card_id) => {
+        console.log('Dans handleClickDeleteCard ')
+        console.log('card_id ', card_id)
+        
+        // JsonServerCard.deleteRemoteCard(card_id);
+        // const deleteCardsCol = cards.map((card) => {
+        //     if (card.id === card_id) {
+        //         return { ...card };
+        //     }
+        //     return card;
+        // });
+        // setCards(deleteCardsCol);
+        // window.location.reload()
+    };
+    
+
 
     // Function for update Col of the card
     const handleChangeCardColumn = (cardId, newColumn) => {
@@ -151,6 +190,9 @@ function Home() {
                                     cards={cards}
                                     termSelected={termSelected}
                                     handleChangeCardColumn={handleChangeCardColumn}
+                                    handleClickDeleteCard={handleClickDeleteCard}
+                                    // handleShowModalEditCard={handleShowModalEditCard}
+                                    handleShowModalEditCard={handleEditCard}
                                     />
                             }
                                 
@@ -166,7 +208,8 @@ function Home() {
             <ModalAddTerm 
                 showModal={showModal} 
                 handleCloseModal={handleCloseModal} 
-                handleAddTerm={handleAddTerm} />
+                handleAddTerm={handleAddTerm}
+            />
 
 
             {/* Modal create card */}
@@ -174,7 +217,18 @@ function Home() {
                 showModalCard={showModalCard}
                 terms={terms} 
                 handleCloseModalCard={handleCloseModalCard} 
-                handleAddCard={handleAddCard} />
+                handleAddCard={handleAddCard} 
+            />
+
+            {/* Modal edit card */}
+            {/* <ModalEditCard 
+                showModalEditCard={showModalEditCard}
+                terms={terms} 
+                handleCloseModalEditCard={handleCloseModalEditCard} 
+                handleEditCard={handleEditCard} 
+            /> */}
+
+
             </>
             
             

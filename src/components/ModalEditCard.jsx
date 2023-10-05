@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 
-function ModalAddCard({ showModalCard, handleCloseModalCard, terms, handleAddCard }) {
+
+const ModalEditCard = (showModalEditCard, handleCloseModalEditCard, handleEditCard) => {
+
     const [question, setQuestion] = useState("");
     const [answer, setAnswer] = useState("");
-    const [selectedTerm, setSelectedTerm] = useState(""); 
+    const [selectedTerm, setSelectedTerm] = useState("");
+    const [terms, setTerms] = useState([]) 
 
     const handleQuestionChange = (e) => {
         setQuestion(e.target.value);
@@ -25,7 +28,7 @@ function ModalAddCard({ showModalCard, handleCloseModalCard, terms, handleAddCar
         }
 
         // Appelez la fonction pour créer la carte avec les données
-        handleAddCard({
+        handleEditCard({
             question: question,
             answer: answer,
             tid: parseInt(selectedTerm),
@@ -35,16 +38,16 @@ function ModalAddCard({ showModalCard, handleCloseModalCard, terms, handleAddCar
         setQuestion("");
         setAnswer("");
         setSelectedTerm("");
-        handleCloseModalCard();
+        handleCloseModalEditCard();
     };
 
     return (
-        <div className={`modal ${showModalCard ? "show" : ""}`} tabIndex="-1" role="dialog" style={{ display: showModalCard ? "block" : "none" }}>
+        <div className={`modal ${showModalEditCard ? "show" : ""}`} tabIndex="-1" role="dialog" style={{ display: showModalEditCard ? "block" : "none" }}>
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title">Créer une carte</h5>
-                        <button type="button" className="close" onClick={handleCloseModalCard}>
+                        <button type="button" className="close" onClick={handleCloseModalEditCard}>
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -70,7 +73,7 @@ function ModalAddCard({ showModalCard, handleCloseModalCard, terms, handleAddCar
                         </div>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" onClick={handleCloseModalCard}>
+                        <button type="button" className="btn btn-secondary" onClick={handleCloseModalEditCard}>
                             Annuler
                         </button>
                         <button type="button" className="btn btn-primary" onClick={handleCreateClick}>
@@ -83,4 +86,4 @@ function ModalAddCard({ showModalCard, handleCloseModalCard, terms, handleAddCar
     );
 }
 
-export default ModalAddCard;
+export default ModalEditCard;
