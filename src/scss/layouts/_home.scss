@@ -4,3 +4,17 @@
     font-size: 2rem;
     text-align: center;
 }
+
+.boxTerm {
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    & .btnTerm {
+        margin-left: 24px;
+        margin-bottom: 5px;
+    }
+    & .btnTermC {
+        margin-left: 5px;
+    }
+}

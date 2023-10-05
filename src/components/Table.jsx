@@ -14,7 +14,7 @@ const Table = ({ cols, cards, termSelected, handleChangeCardColumn, handleClickD
                     termSelected={termSelected}
                     updateCardColumn={handleChangeCardColumn}
                     deleteCard={handleClickDeleteCard}
-                    updateCard={handleShowModalEditCard}
+                    updateCardCol={handleShowModalEditCard}
                 />)}
         </>
     );

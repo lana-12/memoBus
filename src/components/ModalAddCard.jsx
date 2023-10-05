@@ -18,20 +18,16 @@ function ModalAddCard({ showModalCard, handleCloseModalCard, terms, handleAddCar
     };
 
     const handleCreateClick = () => {
-        // Validez les champs de saisie ici, assurez-vous qu'ils ne sont pas vides, etc.
         if (question.trim() === "" || answer.trim() === "" || selectedTerm === "") {
-            // Affichez une erreur ou une alerte si les champs sont vides
             return;
         }
-
-        // Appelez la fonction pour créer la carte avec les données
         handleAddCard({
             question: question,
             answer: answer,
             tid: parseInt(selectedTerm),
         });
 
-        // Réinitialisez les champs après la création de la carte
+        // ReInitialize
         setQuestion("");
         setAnswer("");
         setSelectedTerm("");

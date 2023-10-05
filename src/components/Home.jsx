@@ -17,6 +17,7 @@ function Home() {
     const [columns, setColumns] = useState([]);
     const [cards, setCards] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    const [showModalEditTerm, setShowModalEditTerm] = useState(false);
     const [showModalCard, setShowModalCard] = useState(false);
     const [showModalEditCard, setShowModalEditCard] = useState(false);
 
@@ -59,6 +60,9 @@ function Home() {
     //     setShowTable(true);
     // }
 
+///////////////////////////////////////////////////
+    //TERM Traitement START
+
     // Function for display the la modalCreateTerm
     const handleShowModal = () => {
         setShowModal(true);
@@ -68,6 +72,61 @@ function Home() {
     const handleCloseModal = () => {
         setShowModal(false);
     };
+    // Function for display the la modalCreateTerm
+    const handleShowModalEditTerm = () => {
+        setShowModalEditTerm(true);
+    };
+
+    // Function for hidden the modalCreateTerm
+    const handleCloseModalEditTerm = () => {
+        setShowModalEditTerm(false);
+    };
+
+    // Function for add a term
+    const handleAddTerm = (termName) => {
+        const new_term = {
+            name: termName,
+            selected: false
+        }
+        JsonServerTerm.addRemoteTerm(new_term);
+        setTerms([...terms, new_term]);
+    };
+
+    //function for Update Term
+    const handleUpdateTerm =(term_id) => {
+        console.log('Dans handleUpdateTerm');
+        console.log(term_id);
+        // JsonServerTerm.deleteRemoteTerm(term_id);
+        // const deleteTerm = terms.map((term) => {
+        //     if (term.id === term_id) {
+        //         return { ...term };
+        //     }
+        //     return term;
+        // });
+        // setTerms(deleteTerm);
+        // window.location.reload()
+
+    }
+    //function for Delete Term
+    const handleDeleteTerm =(term_id) => {
+        console.log('Dans HandleDeleteTerm');
+        console.log(term_id);
+        JsonServerTerm.deleteRemoteTerm(term_id);
+        const deleteTerm = terms.map((term) => {
+            if (term.id === term_id) {
+                return { ...term };
+            }
+            return term;
+        });
+        setTerms(deleteTerm);
+        window.location.reload()
+
+    }
+    //TERM END
+///////////////////////////////////////////////////
+
+///////////////////////////////////////////////////
+    //Card Traitement START
 
     // Function for display the modalCreateCard
     const handleShowModalCard = () => {
@@ -89,15 +148,6 @@ function Home() {
         setShowModalEditCard(false);
     };
 
-    // Function for add a term
-    const handleAddTerm = (termName) => {
-        const new_term= {
-            name: termName,
-            selected: false
-        }
-        JsonServerTerm.addRemoteTerm(new_term);
-        setTerms([...terms, new_term]);
-    };
 
     // Function for add une card
     const handleAddCard = (cardData) => {
@@ -116,25 +166,22 @@ function Home() {
         console.log(car_id)
     }
 
-
     // Function for delete une card
     const handleClickDeleteCard = (card_id) => {
         console.log('Dans handleClickDeleteCard ')
         console.log('card_id ', card_id)
         
-        // JsonServerCard.deleteRemoteCard(card_id);
-        // const deleteCardsCol = cards.map((card) => {
-        //     if (card.id === card_id) {
-        //         return { ...card };
-        //     }
-        //     return card;
-        // });
-        // setCards(deleteCardsCol);
-        // window.location.reload()
+        JsonServerCard.deleteRemoteCard(card_id);
+        const deleteCardsCol = cards.map((card) => {
+            if (card.id === card_id) {
+                return { ...card };
+            }
+            return card;
+        });
+        setCards(deleteCardsCol);
+        window.location.reload()
     };
     
-
-
     // Function for update Col of the card
     const handleChangeCardColumn = (cardId, newColumn) => {
         // console.log('Dans handleChangeCardColumn ')
@@ -147,6 +194,10 @@ function Home() {
         });
         setCards(updateChangeCardsCol);
     };
+    //CARD END
+///////////////////////////////////////////////////
+
+
     
     return (
         <>
@@ -164,7 +215,9 @@ function Home() {
                                 key={term.id} 
                                 term={term} 
                                 setTermSelected={setTermSelected} 
-                                setShowTable={setShowTable} />
+                                setShowTable={setShowTable}
+                                deleteTerm={handleDeleteTerm}
+                                updateTerm={handleUpdateTerm} />
                         )}
                     </div>
                 </div>
@@ -181,7 +234,7 @@ function Home() {
 
                 <section className="container my-5">
                     <div className="row ">
-                        <div className="col d-flex justify-content-between ">
+                        <div className="col d-flex justify-content-evenly ">
                             
                             {
                                 showTable &&
@@ -191,8 +244,8 @@ function Home() {
                                     termSelected={termSelected}
                                     handleChangeCardColumn={handleChangeCardColumn}
                                     handleClickDeleteCard={handleClickDeleteCard}
-                                    // handleShowModalEditCard={handleShowModalEditCard}
-                                    handleShowModalEditCard={handleEditCard}
+                                    handleShowModalEditCard={handleShowModalEditCard}
+                                    // handleShowModalEditCard={handleEditCard}
                                     />
                             }
                                 
@@ -210,6 +263,13 @@ function Home() {
                 handleCloseModal={handleCloseModal} 
                 handleAddTerm={handleAddTerm}
             />
+
+            {/* Modal edit term
+            <ModalAddTerm 
+                showModalEditTerm={handleShowModalEditTerm} 
+                handleCloseModalEditTerm={handleCloseModalEditTerm} 
+                handleUpdateTerm={handleAddTerm}
+            /> */}
 
 
             {/* Modal create card */}

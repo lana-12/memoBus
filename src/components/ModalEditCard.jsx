@@ -20,13 +20,12 @@ const ModalEditCard = (showModalEditCard, handleCloseModalEditCard, handleEditCa
         setSelectedTerm(e.target.value);
     };
 
-    const handleCreateClick = () => {
-        // Validez les champs de saisie ici, assurez-vous qu'ils ne sont pas vides, etc.
+    const handleEditClick = () => {
+        // Validez les champs de saisie ici
         if (question.trim() === "" || answer.trim() === "" || selectedTerm === "") {
             // Affichez une erreur ou une alerte si les champs sont vides
             return;
         }
-
         // Appelez la fonction pour créer la carte avec les données
         handleEditCard({
             question: question,
@@ -46,7 +45,7 @@ const ModalEditCard = (showModalEditCard, handleCloseModalEditCard, handleEditCa
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title">Créer une carte</h5>
+                        <h5 className="modal-title">Modifier </h5>
                         <button type="button" className="close" onClick={handleCloseModalEditCard}>
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -76,7 +75,7 @@ const ModalEditCard = (showModalEditCard, handleCloseModalEditCard, handleEditCa
                         <button type="button" className="btn btn-secondary" onClick={handleCloseModalEditCard}>
                             Annuler
                         </button>
-                        <button type="button" className="btn btn-primary" onClick={handleCreateClick}>
+                        <button type="button" className="btn btn-primary" onClick={handleEditClick}>
                             Créer
                         </button>
                     </div>

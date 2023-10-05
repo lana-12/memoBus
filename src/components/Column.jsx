@@ -6,6 +6,8 @@ const Column = ({ col, cards, termSelected, updateCardColumn, deleteCard, update
     // console.log('copy : ', copy)
     // console.log('dans colums cards : ', copy)
     // console.log('dans colums col : ', col)
+    
+    
     return (
         <div className="container boxCol me-4">            
             <h4>{col.label}</h4>
