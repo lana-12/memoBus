@@ -29,11 +29,11 @@ export default class JsonServerTerm {
                 body: JSON.stringify(term)
             })
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 return response.json();
             })
             .then(function (term) {
-                console.log(term)
+                // console.log(term)
             })
             .catch(function (error) { console.error(error) })
     }

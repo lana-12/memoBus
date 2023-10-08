@@ -16,7 +16,6 @@ function Login() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Charger les utilisateurs depuis la base de données (db.json) au montage du composant
         const fetchUser = async () => {
             try {
                 const dataUser = await JsonServerUser.loadLogin();

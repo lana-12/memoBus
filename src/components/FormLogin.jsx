@@ -22,8 +22,6 @@ const FormLogin = ({ inputNameRef, inputPwdRef, onSubmitFormLogin }) => {
                             id="inputName"
                             ref={inputNameRef}
                             name="username"
-                            // value={username}
-                            // onChange={handleChange}
                         />
                     </div>
                     <div className="mb-5">
@@ -38,18 +36,13 @@ const FormLogin = ({ inputNameRef, inputPwdRef, onSubmitFormLogin }) => {
                             id="inputPwd"
                             name="password"
                             ref={inputPwdRef}
-                            // value={password}
-                            // onChange={handleChange}
                         />
                     </div>
                     <div className="d-flex justify-content-center ">
                         <button className="btn btn-primary mb-3 " type="submit">Connexion</button>
                     </div>
                 </form>
-
             </div>
-            
-
         </section>
     );
 }

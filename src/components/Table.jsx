@@ -3,7 +3,6 @@ import Column from "./Column";
 const Table = ({ cols, cards, termSelected, handleChangeCardColumn, handleClickDeleteCard, handleShowModalEditCard  }) => {
 
     const copyCol = [...cols]
-    // console.log(copyCol);
     return (
         <>
             {copyCol.map((col) => 

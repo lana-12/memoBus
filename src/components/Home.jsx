@@ -48,8 +48,6 @@ function Home() {
                 // console.log('dataCar : ', dataCard);
                 setCards(dataCard);
 
-
-
             } catch (error) {
                 setError(`Erreur attrapée dans La récupération des données` + error);
                 console.error(`Erreur attrapée dans La récupération des données` + error);
@@ -96,18 +94,12 @@ function Home() {
         JsonServerTerm.addRemoteTerm(new_term);
         setTerms([...terms, new_term]);
     };
-    const handleEditTerm = (termId, newName) => {
-
-        // Mettez à jour le terme dans la base de données (db.json) ici en utilisant une requête HTTP (par exemple, fetch ou axios).
-        // Après la mise à jour réussie, mettez à jour l'état local terms avec le nouveau nom du terme.
-        // Assurez-vous que termId correspond à l'ID du terme que vous souhaitez mettre à jour.
-        // Fermez ensuite la modal de modification en utilisant setShowEditModal(false).
-    };
+    
     //function for Delete Term
     const handleDeleteTerm =(term_id) => {
         console.log('Dans HandleDeleteTerm');
         console.log(term_id);
-        // JsonServerTerm.deleteRemoteTerm(term_id);
+        JsonServerTerm.deleteRemoteTerm(term_id);
         const deleteTerm = terms.map((term) => {
             if (term.id === term_id) {
                 return { ...term };
@@ -218,7 +210,6 @@ function Home() {
                     </div>
                 </div>
             </section>
-
 
             <section className="container">
                 <button

@@ -6,7 +6,6 @@ const Head = () => {
                 document.title = 'MemoBus';
             }, [])
         );
-
- }
+}
 
 export default Head;

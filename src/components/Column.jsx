@@ -1,12 +1,7 @@
 import Card from "./Card";
 
 const Column = ({ col, cards, termSelected, updateCardColumn, deleteCard, updateCard }) => {
-    // console.log("cards dans le composant Column : ", cards);
-    const copy = [...cards];
-    // console.log('copy : ', copy)
-    // console.log('dans colums cards : ', copy)
-    // console.log('dans colums col : ', col)
-    
+    const copy = [...cards];    
     
     return (
         <div className="container boxCol me-4">            
@@ -23,7 +18,9 @@ const Column = ({ col, cards, termSelected, updateCardColumn, deleteCard, update
                         deleteCard={deleteCard}
                         updateCard={updateCard} 
 
-                        />)}
+                    />
+                )
+            }
         </div>
     );
 }

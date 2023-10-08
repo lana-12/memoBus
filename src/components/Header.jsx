@@ -6,9 +6,7 @@ const Header = ({ onClickLogout, color }) => {
             <div className="container">
                 <div className="row ">
                     <div className="d-flex justify-content-center">
-                    {/* <div className="col-8 d-flex justify-content-center"> */}
                         <h1 
-                        // Create route vers home
                         id="title-memo"><Link className="titleNemo" to="/home">MemoBus</Link></h1>
                         
                     </div>
