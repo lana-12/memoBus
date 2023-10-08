@@ -21,19 +21,15 @@ const ModalEditCard = (showModalEditCard, handleCloseModalEditCard, handleEditCa
     };
 
     const handleEditClick = () => {
-        // Validez les champs de saisie ici
         if (question.trim() === "" || answer.trim() === "" || selectedTerm === "") {
-            // Affichez une erreur ou une alerte si les champs sont vides
             return;
         }
-        // Appelez la fonction pour créer la carte avec les données
         handleEditCard({
             question: question,
             answer: answer,
             tid: parseInt(selectedTerm),
         });
 
-        // Réinitialisez les champs après la création de la carte
         setQuestion("");
         setAnswer("");
         setSelectedTerm("");
@@ -75,8 +71,8 @@ const ModalEditCard = (showModalEditCard, handleCloseModalEditCard, handleEditCa
                         <button type="button" className="btn btn-secondary" onClick={handleCloseModalEditCard}>
                             Annuler
                         </button>
-                        <button type="button" className="btn btn-primary" onClick={handleEditClick}>
-                            Créer
+                        <button type="button" className="btn btn-primary" onClick={() => handleEditClick()}>
+                            Modifier
                         </button>
                     </div>
                 </div>

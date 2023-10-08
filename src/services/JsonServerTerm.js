@@ -38,6 +38,8 @@ export default class JsonServerTerm {
             .catch(function (error) { console.error(error) })
     }
 
+    
+
     static async deleteRemoteTerm(term_id) {
         return fetch(`${JsonServerTerm.url}/${term_id}`,
             {

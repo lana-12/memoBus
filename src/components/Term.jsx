@@ -1,21 +1,25 @@
 import React from "react";
+import { useState } from "react";
+import ModalEditTerm from "./ModalEditTerm";
 
-function Term({ term, setTermSelected, setShowTable, deleteTerm, updateTerm }) {
+
+function Term({ term, setTermSelected, setShowTable, deleteTerm }) {
+    
+
     const handleButtonClick = () => {
         setTermSelected(term);
-        setShowTable(true); // Déclenche l'affichage du composant Table
+        setShowTable(true); 
     };
 
     const onClickBtnTermDelete = () =>{
-        console.log('Dans onClickBtnTerm');
+        // console.log('Dans onClickBtnTerm');
         console.log('Dans onClickBtnTerm', term.id);
         deleteTerm(term.id)
     }
 
     const onClickBtnTermUpdate = () =>{
-        console.log('Dans onClickBtnTerm');
-        console.log('Dans onClickBtnTerm', term.id);
-        updateTerm(term.id)
+        console.log('Dans onClickBtnTerm', term.id, term.name);
+        alert((`Je n'arrive pas à ouvrir la modal pour modifier : ${term.name}, id : ${term.id} `))
     }
 
     return (
@@ -35,19 +39,13 @@ function Term({ term, setTermSelected, setShowTable, deleteTerm, updateTerm }) {
                     onClick={onClickBtnTermUpdate}></i>
 
                 </button>
-
                     <button className="btnTermC btn btn-danger" title="Cliquer pour supprimer la thématique">
                     <i 
                     className="bi bi-dash"
                     onClick={onClickBtnTermDelete}></i>
-                    
                 </button>
             </div>
-
-
         </div>
-
-
         </>
     );
 }

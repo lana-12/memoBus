@@ -74,7 +74,7 @@
       "id": 730
     },
     {
-      "name": "truc",
+      "name": "Trucs",
       "selected": false,
       "id": 731
     }
@@ -84,7 +84,7 @@
       "id": 11,
       "question": "Qui est l'inventeur du web ?",
       "answer": "Tim Berners-Lee",
-      "column": 2,
+      "column": 3,
       "selected": false,
       "tid": 724
     },
@@ -100,7 +100,7 @@
       "id": 12,
       "question": "Comment créer une page html",
       "answer": "! et entrer",
-      "column": 3,
+      "column": 2,
       "selected": false,
       "tid": 724
     },

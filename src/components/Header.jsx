@@ -19,6 +19,7 @@ const Header = ({ onClickLogout, color }) => {
                                     <Link className="link-header" to="/">Login</Link>
                                 </li>
                                 <li
+                                    className="logout"
                                     onClick={onClickLogout}
                                 >Logout
                                         {/* <Link className="link-header" to="/Logout">Logout</Link> */}

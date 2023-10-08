@@ -6,6 +6,7 @@ import Term from './Term';
 import Table from "./Table";
 import { Link } from 'react-router-dom';
 import ModalAddTerm from "./ModalAddTerm";
+import ModalEditTerm from "./ModalEditTerm";
 import ModalAddCard from "./ModalAddCard";
 import ModalEditCard from "./ModalEditCard";
 
@@ -17,7 +18,9 @@ function Home() {
     const [columns, setColumns] = useState([]);
     const [cards, setCards] = useState([]);
     const [showModal, setShowModal] = useState(false);
-    const [showModalEditTerm, setShowModalEditTerm] = useState(false);
+    const [showEditModal, setShowEditModal] = useState(false);
+    const [termForEdit, setTermForEdit] = useState(null);
+
     const [showModalCard, setShowModalCard] = useState(false);
     const [showModalEditCard, setShowModalEditCard] = useState(false);
 
@@ -72,14 +75,16 @@ function Home() {
     const handleCloseModal = () => {
         setShowModal(false);
     };
+
     // Function for display the la modalCreateTerm
-    const handleShowModalEditTerm = () => {
-        setShowModalEditTerm(true);
+    const handleShowModalEdit = () => {
+        setShowEditModal(true);
     };
 
     // Function for hidden the modalCreateTerm
     const handleCloseModalEditTerm = () => {
-        setShowModalEditTerm(false);
+        setShowEditModal(false);
+        setTermForEdit(null);
     };
 
     // Function for add a term
@@ -91,27 +96,18 @@ function Home() {
         JsonServerTerm.addRemoteTerm(new_term);
         setTerms([...terms, new_term]);
     };
+    const handleEditTerm = (termId, newName) => {
 
-    //function for Update Term
-    const handleUpdateTerm =(term_id) => {
-        console.log('Dans handleUpdateTerm');
-        console.log(term_id);
-        // JsonServerTerm.deleteRemoteTerm(term_id);
-        // const deleteTerm = terms.map((term) => {
-        //     if (term.id === term_id) {
-        //         return { ...term };
-        //     }
-        //     return term;
-        // });
-        // setTerms(deleteTerm);
-        // window.location.reload()
-
-    }
+        // Mettez à jour le terme dans la base de données (db.json) ici en utilisant une requête HTTP (par exemple, fetch ou axios).
+        // Après la mise à jour réussie, mettez à jour l'état local terms avec le nouveau nom du terme.
+        // Assurez-vous que termId correspond à l'ID du terme que vous souhaitez mettre à jour.
+        // Fermez ensuite la modal de modification en utilisant setShowEditModal(false).
+    };
     //function for Delete Term
     const handleDeleteTerm =(term_id) => {
         console.log('Dans HandleDeleteTerm');
         console.log(term_id);
-        JsonServerTerm.deleteRemoteTerm(term_id);
+        // JsonServerTerm.deleteRemoteTerm(term_id);
         const deleteTerm = terms.map((term) => {
             if (term.id === term_id) {
                 return { ...term };
@@ -217,7 +213,7 @@ function Home() {
                                 setTermSelected={setTermSelected} 
                                 setShowTable={setShowTable}
                                 deleteTerm={handleDeleteTerm}
-                                updateTerm={handleUpdateTerm} />
+                            />
                         )}
                     </div>
                 </div>
@@ -235,7 +231,6 @@ function Home() {
                 <section className="container my-5">
                     <div className="row ">
                         <div className="col d-flex justify-content-evenly ">
-                            
                             {
                                 showTable &&
                                 <Table
@@ -245,11 +240,8 @@ function Home() {
                                     handleChangeCardColumn={handleChangeCardColumn}
                                     handleClickDeleteCard={handleClickDeleteCard}
                                     handleShowModalEditCard={handleShowModalEditCard}
-                                    // handleShowModalEditCard={handleEditCard}
-                                    />
+                                />
                             }
-                                
-                            
                         </div>
                     </div>
                 </section>
@@ -264,12 +256,15 @@ function Home() {
                 handleAddTerm={handleAddTerm}
             />
 
-            {/* Modal edit term
-            <ModalAddTerm 
-                showModalEditTerm={handleShowModalEditTerm} 
-                handleCloseModalEditTerm={handleCloseModalEditTerm} 
-                handleUpdateTerm={handleAddTerm}
-            /> */}
+            
+                {/* <ModalEditTerm
+                    term={termForEdit}
+                    onUpdateTerm={handleEditTerm}
+                    onClose={() => {
+                        setShowEditModal(false);
+                        setTermForEdit(null);
+                    }}
+                /> */}
 
 
             {/* Modal create card */}
@@ -282,16 +277,12 @@ function Home() {
 
             {/* Modal edit card */}
             {/* <ModalEditCard 
-                showModalEditCard={showModalEditCard}
+                // showModalEditCard={showModalEditCard}
                 terms={terms} 
                 handleCloseModalEditCard={handleCloseModalEditCard} 
                 handleEditCard={handleEditCard} 
             /> */}
-
-
             </>
-            
-            
     );
 }
 

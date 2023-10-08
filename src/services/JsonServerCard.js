@@ -56,7 +56,7 @@ export default class JsonServerCard {
     }
 
 
-    static async changeCardColumn(cardId) {
+    // static async changeCardColumn(cardId) {
         // const url = `${JsonServerCard.url}/${cardId}`;
         // const updatedCard = {
         //     column: newColumn
@@ -81,7 +81,7 @@ export default class JsonServerCard {
         //     console.error(error);
         //     throw error;
         // }
-    }
+    // }
 
 
 

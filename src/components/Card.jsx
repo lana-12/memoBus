@@ -4,14 +4,12 @@ const Card = ({ card, updateCardColumn, deleteCard, updateCard }) => {
     const handleMoveRightClick = ()=> {
         const currentColumn = card.column;
         const newColumn = currentColumn < 4 ? currentColumn + 1 : currentColumn;
-        // Fonction for setup the col of the card
         updateCardColumn(card.id, newColumn);
     }
 
     const handleMoveLeftClick = ()=> {
         const currentColumn = card.column;
         const newColumn = currentColumn >1 ? currentColumn - 1 : currentColumn;
-        // Fonction for setup the col of the card
         updateCardColumn(card.id, newColumn);
     }
 
@@ -25,6 +23,8 @@ const Card = ({ card, updateCardColumn, deleteCard, updateCard }) => {
         console.log(card.id);
 
         updateCard(card.id);
+        alert((`Je n'arrive pas à ouvrir la modal pour modifier : ${card.question}, id : ${card.id} `))
+
     }
 
 
@@ -68,8 +68,6 @@ const Card = ({ card, updateCardColumn, deleteCard, updateCard }) => {
                 </div>
             </article>
         </div>
-
-
     </>
     );
 }
